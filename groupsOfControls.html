@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/common-1.1.js"></script>
+    <script src="js/groupsOfControls-1.0.js"></script>
+    <title></title>
+</head>
+<style>
+    #button1,#button2{margin:5px 10%;}
+    #button1,#button2 p{color:#000000;}
+
+    #text,#search{width:70%;margin:10px 10%;}
+    #text input{}
+
+    #nav1{margin:10px 10%;}
+    #nav1 ul li:nth-child(1){}
+</style>
+<body>
+    <div class="b_button" id="button1">
+        <p>button1</p>
+    </div>
+    <div class="b_button" id="button2">
+        <p>button2</p>
+    </div>
+
+    <div class="b_text" id="text">
+        <input type="text" placeholder="  placeholder：" id="textId">
+    </div>
+
+    <div class="b_search" id="search">
+        <aside class="b_searchText" id="searchText">
+            <input type="search" placeholder="  searchText：" >
+        </aside>
+        <aside class="b_searchButton">
+            <img src="images/searchButton.png">
+        </aside>
+    </div>
+
+    <nav class="b_nav" id="nav1">
+        <ul>
+            <li>
+                <p><span>nav1</span></p>
+            </li>
+            <li>
+                <p><span>nav2</span></p>
+            </li>
+            <li>
+                <p><span>nav3</span></p>
+            </li>
+        </ul>
+    </nav>
+
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        buttonSet(function(id){
+            if(id=="button1"){
+                console.log(id);
+            }else if(id=="button2"){
+                console.log(id);
+            }
+        });
+
+        /*
+        * 初始化searchText，searchAction
+        * */
+        searchTextSet(function(){
+            var searchTerm = $("#searchText").children("input").val();
+            alert(searchTerm);
+        });
+
+        navSet(function(index){
+            if(index==0){
+
+            }else if(index==1){
+
+            }else{
+
+            }
+        });
+
+    });
+
+
+
+</script>
+</html>

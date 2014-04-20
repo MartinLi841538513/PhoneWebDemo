@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://cubiq.org/dropbox/iscroll4/examples/carousel/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>bannerdemo</title>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/bannar.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bannar.css" />
+</head>
+<body onload="bannar();">
+    <section class="bannarImg">
+        <div id="wrapper" style="overflow: hidden;">
+            <div id="scroller" style="-webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(-1800px, 0px) scale(1) translateZ(0px);">
+                <ul id="thelist">
+                    <li><img src="images/bannar1_s.jpg" class="bannar"/></li>
+                    <li><img src="images/bannar1_s.jpg" class="bannar"/></li>
+                    <li><img src="images/bannar1_s.jpg" class="bannar"/></li>
+                </ul>
+            </div>
+        </div>
+        <div id="nav">
+            <ul id="indicator">
+                <li class="">1</li>
+                <li class="">2</li>
+                <li class="active">3</li>
+            </ul>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        bannar();
+        $("#thelist li").on("click",function(){
+            liAction(this);
+        });
+    });
+
+    //监听浏览器的变化
+    window.onresize = function(){
+        bannar();
+    }
+
+    //bannar触发事件
+    function liAction(obj){
+       var content = $(obj).html();
+       console.log(content);
+    }
+    function bannar(){
+        setBannar(0.86,0.47,'20px','7%');//该方法在bannar.js文件中
+    }
+</script>
+</html>

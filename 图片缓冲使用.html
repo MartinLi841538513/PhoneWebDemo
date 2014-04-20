@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.lazyload.js"></script>
+<script src="js/iscroll.js"></script>
+<title>title</title>
+</head>
+<body>
+    <header style="width: 100%;">
+        <img src="images/loading.jpg" data-original="http://img.shu163.com/uploadfiles/wallpaper/2010/6/2010093006114284.jpg" style="width: 100%;">
+    </header>
+    <p>
+        1111
+    </p>
+    <p>
+       2222
+    </p>
+	<section id="wrapper">
+		<ul>
+			<li>
+				<img src="images/loading.jpg" data-original="http://img.shu163.com/uploadfiles/wallpaper/2010/6/2010093006114284.jpg">
+			</li>
+            <li>
+                123456
+            </li>
+			<li>
+				<img src="images/loading.gif" data-original="http://photo.8080.net/xiangce/17306/2007524205720/l_2007524205749.JPG">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://photo.8080.net/xiangce/17306/2007524205720/l_20075242167.JPG">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://imga.mumayi.com/android/wallpaper/2011/10/12/2011101205550352773473.jpg">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://www.itoobz.com/uploads/allimg/1211/1-121125102551.jpg">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://pic1.win4000.com/wallpaper/f/5101fb10c4543.jpg">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://images-fast.digu.com/930d8830aef29ffe41bc9d2aa195d7d4_0009.jpg">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://images.gamerlol.com/upload/2012/10/gl2012102511035273256579.jpg">
+			</li>
+			<li>
+				<img src="images/loading.gif" data-original="http://www.itoobz.com/uploads/allimg/1209/19-12091H23334.jpg">
+			</li>
+		</ul>
+	</section>
+</body>
+<style>
+	ul{
+		width:100%;
+	}
+	li{
+		width:100%;
+		margin-top:10px;
+	}
+	li img{width:100%;}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var scroll = scrollWithLocation("wrapper","310px","10px","0px","0px");
+		 $("img").lazyload({
+	         effect: "fadeIn", //加载图片使用的效果(淡入)
+	         threshold : 400	//在离可视区400px以内的图片也开始加载了，提升体验度    
+	    });
+	}
+	
+	/*
+		iscroll
+		1、取消select,input,textarea等默认不可点击效果
+		2、解决iscroll。js和loadlazy.js冲突
+	*/
+	function scroll(id){
+		var myScroll = new iScroll(id, {
+	        useTransform: false,
+	        onBeforeScrollStart: function (e) {
+	            var target = e.target;
+	            while (target.nodeType != 1) target = target.parentNode;
+				//在iscroller里经常会有select,input等属性默认不可点击，阻止默认操作就可以点击了
+	            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'A')
+	                e.preventDefault();
+		    },
+		    onScrollMove: function(){
+		    	$("#"+id).trigger('scroll');//iscroller和loadlazy.js图片缓冲完毕后不能及时刷新，加上这个模拟浏览器被滑动，那么图片就可以刷新了
+		    },
+		    onScrollEnd: function(){
+                $("#"+id).trigger('scroll');
+		    }
+		});
+		return myScroll;
+	}
+	
+	/*
+		初始化scroll，
+		1、设置id="wrapper"部分enscroll ( 参数依次是：id 上 右 下 左   （wrapper默认是position:absolute，overflow:hidden） scroller放在onload()里不容易出现界面混乱)
+		2、阻止浏览器默认滑动
+	*/
+	function scrollWithLocation(id,top,right,bottom,left){
+		var wrapper = document.getElementById(id);
+		wrapper.style.position = "absolute";
+		wrapper.style.top = top;
+		wrapper.style.right = right;
+		wrapper.style.bottom = bottom;
+		wrapper.style.left = left;
+		wrapper.style.overflow = "hidden";
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//阻止浏览器的默认滑动
+		return scroll(id);
+	}
+</script>
+</html>

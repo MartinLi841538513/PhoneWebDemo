@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/common.js"></script>
+<title>title</title>
+</head>
+<body>
+	<br><br><br><br><br>
+	<a href="图片缓冲使用.html" style="font-size:19px;">跳转</a>
+	<div class="hidden" style="display:none;">  
+	  
+	</div>  
+	<p id="indicator">1</p>
+	<p id="full-screen">3</p>
+</body>
+<style>
+	p{width:60%;}
+	p img{width:100%;}
+</style>
+<script type="text/javascript">
+
+	$(function() {
+
+	});
+
+    window.onload = function(){
+        $.preload([
+            "http://img.shu163.com/uploadfiles/wallpaper/2010/6/2010093006114284.jpg",
+            "http://photo.8080.net/xiangce/17306/2007524205720/l_2007524205749.JPG",
+            "http://photo.8080.net/xiangce/17306/2007524205720/l_20075242167.JPG",
+            "http://imga.mumayi.com/android/wallpaper/2011/10/12/2011101205550352773473.jpg",
+            "http://www.itoobz.com/uploads/allimg/1211/1-121125102551.jpg",
+            "http://pic1.win4000.com/wallpaper/f/5101fb10c4543.jpg",
+            "http://images-fast.digu.com/930d8830aef29ffe41bc9d2aa195d7d4_0009.jpg",
+            "http://images.gamerlol.com/upload/2012/10/gl2012102511035273256579.jpg"
+        ], {
+            init: function(loaded, total) {
+                $("#indicator").html("Loaded: "+loaded+"/"+total);
+            },
+            loaded: function(img, loaded, total) {
+                $("#indicator").html("Loaded: "+loaded+"/"+total);
+                $("#full-screen").append(img);
+            },
+            loaded_all: function(loaded, total) {
+                $("#indicator").html("Loaded: "+loaded+"/"+total+". Done!");
+            }
+        });
+    }
+</script>
+</html>

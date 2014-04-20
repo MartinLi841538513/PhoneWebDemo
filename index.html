@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<script src="http://121.199.20.86/dw/res/js/jquery-1.7.1.min.js"></script>
+<script src="http://121.199.20.86/dw/res/weixin/js/jquery.lazyload.js"></script>
+<script src="http://121.199.20.86/dw/res/weixin/js/iscroll.js"></script>
+<script src="http://121.199.20.86/dw/res/weixin/js/common.js"></script>
+
+<title>title</title>
+</head>
+<body id="content-wrapper">
+<br><br>
+   <a>跳转</a><br><br>
+    <button>按钮</button><br>
+<div><img src="http://pic1.win4000.com/wallpaper/f/5101fb10c4543.jpg"></div>
+<div><img src="http://images-fast.digu.com/930d8830aef29ffe41bc9d2aa195d7d4_0009.jpg"></div>
+<div><img src="http://images.gamerlol.com/upload/2012/10/gl2012102511035273256579.jpg"></div>
+<div><img src="http://photo.8080.net/xiangce/17306/2007524205720/l_20075242167.JPG"></div>
+<div><img src="http://www.itoobz.com/uploads/allimg/1209/19-12091H23334.jpg"></div>
+
+</body>
+<style>
+	a{font-size:19px;margin-top:30px;}
+    div{width:100%;margin-top:10px;}
+    img{width:80%;margin-left:10%;}
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var src = "banner1_s.jpg";
+        var length = src.length;
+        var endIndex = length-4-2;
+        src = src.substring(0,endIndex)+src.substring(endIndex+2,length);
+        alert(src);
+
+    });
+
+</script>
+
+</html>
