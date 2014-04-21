@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/iscroll.js"></script>
     <script src="js/common-1.1.js"></script>
     <script src="js/groupsOfControls-1.0.js"></script>
     <title></title>
 </head>
 <style>
-    #button1,#button2{margin:5px 10%;}
+    #button1,#button2,#b_tableview1,#b_tableview2,#b_tableview3,#b_tableview4,#b_tableviewDownDetail{margin:5px 10%;}
+    #b_tableview2{margin-left: 40%;}
+    #b_tableview3{margin-top:150px;}
+    #b_tableview4{margin-top:300px;}
+    #b_tableviewDownDetail{margin-top:450px;}
+
     #button1,#button2 p{color:#000000;}
 
     #text,#search{width:70%;margin:10px 10%;}
@@ -18,6 +24,7 @@
 
     #nav1{margin:10px 10%;}
     #nav1 ul li:nth-child(1){}
+
 </style>
 <body>
     <div class="b_button" id="button1">
@@ -54,12 +61,148 @@
         </ul>
     </nav>
 
+    <div class="b_tableview" id="b_tableview1">
+        <ul>
+            <li><header>title1</header></li>
+            <li><header>title2</header></li>
+            <li><header>title3</header></li>
+            <li><header>title4</header></li>
+        </ul>
+    </div>
+
+    <div class="b_tableview" id="b_tableview2">
+        <ul>
+            <li>
+                <header>title1</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <header>title2</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <header>title3</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <header>title4</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+        </ul>
+    </div>
+
+    <div class="b_tableview" id="b_tableview3">
+        <ul>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title1</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title2</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title3</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title4</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+        </ul>
+    </div>
+
+    <div class="b_tableview" id="b_tableview4">
+        <ul>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title1</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+                <aside class="b_rightDetail">detail introduction1</aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title2</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+                <aside class="b_rightDetail">detail introduction2</aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title3</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+                <aside class="b_rightDetail">detail introduction3</aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title4</header>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+                <aside class="b_rightDetail">detail introduction4</aside>
+            </li>
+        </ul>
+    </div>
+
+    <div class="b_tableview" id="b_tableviewDownDetail">
+        <ul>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title1</header>
+                <aside class="b_downDetail">detail introduction1</aside>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title2</header>
+                <aside class="b_downDetail">detail introduction2</aside>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title3</header>
+                <aside class="b_downDetail">detail introduction3</aside>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+            <li>
+                <aside class="b_cellImg">
+                    <img src="images/testIcon.png" alt="image">
+                </aside>
+                <header>title4</header>
+                <aside class="b_downDetail">detail introduction4</aside>
+                <aside class="b_arrow"><canvas>1</canvas></aside>
+            </li>
+        </ul>
+    </div>
 
 </body>
 <script type="text/javascript">
     $(document).ready(function(){
 
-        buttonSet(function(id){
+        buttonInit(function(id){
             if(id=="button1"){
                 console.log(id);
             }else if(id=="button2"){
@@ -69,15 +212,13 @@
 
         /*
         * 初始化searchText，searchAction
-        *
-        * 
         * */
-        searchTextSet(function(){
+        searchTextInit(function(){
             var searchTerm = $("#searchText").children("input").val();
             alert(searchTerm);
         });
 
-        navSet(function(index){
+        navInit(function(index){
             if(index==0){
 
             }else if(index==1){
@@ -87,8 +228,72 @@
             }
         });
 
+
     });
 
+    window.onload = function(){
+        //tableview的初始化放在onload中，防止界面加载会变乱
+        tableviewInit("b_tableview1",function(index){
+            if(index==0){
+
+            }else if(index==1){
+
+            }else if(index==2){
+
+            }else{
+
+            }
+        });
+
+        tableviewInitWithArrow("b_tableview2",function(index){
+            if(index==0){
+
+            }else if(index==1){
+
+            }else if(index==2){
+
+            }else{
+
+            }
+        });
+
+        tableviewInitWithImage("b_tableview3",function(index){
+            if(index==0){
+
+            }else if(index==1){
+
+            }else if(index==2){
+
+            }else{
+
+            }
+        });
+
+        tableviewInitWithRightDetail("b_tableview4",function(index){
+            if(index==0){
+
+            }else if(index==1){
+
+            }else if(index==2){
+
+            }else{
+
+            }
+        });
+
+        tableviewInitWithDownDetail("b_tableviewDownDetail",function(index){
+            if(index==0){
+
+            }else if(index==1){
+
+            }else if(index==2){
+
+            }else{
+
+            }
+        });
+
+    }
 
 
 </script>

@@ -90,9 +90,10 @@ function setlazyload(imgTag,src){
 /*
  iscroll
  1、取消select,input,textarea等默认不可点击效果
- 2、解决iscroll。js和loadlazy.js冲突
+ 2、解决iscroll.js和loadlazy.js冲突
  */
 function scroll(id){
+    document.getElementById(id).style.position = "absolute";
     var myScroll = new iScroll(id, {
         useTransform: false,
         onBeforeScrollStart: function (e) {
@@ -112,13 +113,12 @@ function scroll(id){
 }
 
 /*
- 初始化scroll，
+ 初始化全屏的scroll，
  1、设置id="wrapper"部分enscroll ( 参数依次是：id 上 右 下 左   （wrapper默认是position:absolute，overflow:hidden） scroller放在onload()里不容易出现界面混乱)
  2、阻止浏览器默认滑动
  */
 function scrollWithLocation(id,top,right,bottom,left){
     var wrapper = document.getElementById(id);
-    wrapper.style.position = "absolute";
     wrapper.style.top = top;
     wrapper.style.right = right;
     wrapper.style.bottom = bottom;
